@@ -1,0 +1,16 @@
+# On ignore tout wp-content…
+/*
+
+# …sauf ce qui a été codé ou corrigé pour ce projet
+!/.gitignore
+!/README.md
+!/themes/
+/themes/*
+!/themes/oceanwp-child-theme-master/
+
+# La démo statique pour GitHub Pages
+!/docs/
+
+# Fichiers inutiles dans le dépôt
+.DS_Store
+*.map
