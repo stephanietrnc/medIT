@@ -81,3 +81,26 @@ function medit_child_faq_fallback() {
 	);
 }
 add_action( 'init', 'medit_child_faq_fallback', 20 );
+
+/**
+ * Démo statique (Simply Static) : Elementor charge certains scripts seulement
+ * quand la page en a besoin (compteurs, sections étirées…). Comme aucune page
+ * ne les cite, l'export ne les récupérait pas et les compteurs restaient vides.
+ * On les annonce dans le <head> (prefetch) : l'export les trouve et les copie.
+ * Sur le site WordPress, ça ne change rien à l'affichage.
+ */
+function medit_child_prefetch_elementor_chunks() {
+	if ( ! defined( 'ELEMENTOR_VERSION' ) ) {
+		return;
+	}
+
+	$chunks = array( 'counter', 'text-editor', 'section-stretched-section', 'background-slideshow', 'background-video' );
+
+	foreach ( $chunks as $chunk ) {
+		printf(
+			'<link rel="prefetch" href="%s" as="script">' . "\n",
+			esc_url( plugins_url( 'elementor/assets/js/chunks/' . $chunk . '.min.js' ) )
+		);
+	}
+}
+add_action( 'wp_head', 'medit_child_prefetch_elementor_chunks' );

@@ -1,8 +1,8 @@
-# Medit — débogage d'un site WordPress
+# MedIT — débogage d'un site WordPress
 
 Site vitrine d'une entreprise de services informatiques pour le secteur médical, livré avec 6 bugs à corriger.
 
-**Démo :** _lien à venir_
+**Démo :** [stephanietrnc.github.io/medIT](https://stephanietrnc.github.io/medIT/)
 
 ## Contexte
 
@@ -29,6 +29,8 @@ Le contenu du site (textes, photos, cabinet d'avocats) vient de la démo du thè
 - Contraste des textes et boutons conforme WCAG AA
 - Bouton contact dans un `<li>`, uniquement dans le menu principal
 - Font Awesome chargé une seule fois au lieu de deux (environ 160 Ko en moins)
+- Image de fond en WebP (240 Ko → 73 Ko), textes alternatifs des photos
+- Page FAQ : message clair à la place du shortcode `[faq]` cassé
 - Extensions inutiles retirées, menu mobile et champ newsletter corrigés
 
 ## Structure
